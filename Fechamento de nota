@@ -1,0 +1,37 @@
+#include <stdio.h>
+int main(void)
+{
+typedef struct Alunos{
+char nome[20];
+float matematica, fisica, media;
+}aluno;
+
+aluno alunos[3];
+int count;
+
+for(count = 0 ; count < 3 ; count++)
+{
+setbuf(stdin, NULL);
+printf("\nNome do aluno %d: ", count+1);
+gets(alunos[count].nome);
+
+printf("Nota de matematica: ");
+scanf("%f", &alunos[count].matematica);
+
+printf("Nota de fisica: ");
+scanf("%f", &alunos[count].fisica);
+
+alunos[count].media = (alunos[count].matematica + alunos[count].fisica)/2;
+}
+
+printf("\nExibindo nomes e medias:\n");
+
+for(count = 0 ; count < 3 ; count++)
+{
+printf("\nAluno %d", count+1);
+printf("\nNome: %s",alunos[count].nome);
+printf("\nMedia: %.2f\n", alunos[count].media);
+}
+
+return 0;
+}
